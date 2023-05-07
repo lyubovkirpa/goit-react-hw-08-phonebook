@@ -1,16 +1,30 @@
-export const App = () => {
+import { Component } from "react";
+// import { nanoid } from 'nanoid'
+import ContactForm from "components/ContactForm"
+
+
+
+
+export class App extends Component {
+state = {
+    contacts: [],
+    name: '',    
+  };
+
+formSabmitHandler = data => {
+  console.log(data);
+}
+
+  render(){ 
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+         
+        <h1>Phonebook</h1>
+        <ContactForm onSubmit = {this.formSabmitHandler}/>        
+           
+    </>
   );
 };
+};
+
