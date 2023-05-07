@@ -1,13 +1,15 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { nanoid } from 'nanoid'
 
-
-const { Component } = require("react");
 
 
 class ContactForm extends Component{
+static propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
   state = {
-    contacts: [],
-    name: '', 
+    name: '',   
   }
 
   handleChange = event => {
@@ -18,21 +20,38 @@ class ContactForm extends Component{
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    this.props.onSubmit(this.state);
-  }
+    
+    if (this.state.name === this.props.onSubmit(this.state)){
+      return;
+    }
+    this.reset();
+  };
 
+  reset = () => {
+    this.setState({
+      name: '',
+     
+    });
+  };
+
+  nameInputId = nanoid();
 
   render() {
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name <input
-           type='text' 
-           name='name'
-           value={this.state.name} 
-           onChange={this.handleChange}
-            />
+        <label htmlFor={this.nameInputId}>
+          Name 
+          <input
+            type='text' 
+            name='name'
+            value={this.state.name} 
+            onChange={this.handleChange}
+            id={this.nameInputId}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
         </label>        
         <button type="submit">Add contact</button>
       </form>
@@ -40,10 +59,5 @@ class ContactForm extends Component{
   }
 }
 
-
-
-// ContactForm.propTypes = {
-//   handleSubmit: PropTypes.func.isRequired,
-// };
 
 export default ContactForm;
