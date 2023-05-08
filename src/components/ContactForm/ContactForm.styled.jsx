@@ -8,7 +8,6 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 16px;
-width: 360px;
 padding: 20px;
 border: 1px solid gray;
 border-radius: 5px;
@@ -23,4 +22,17 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   width: 200px;
+`;
+
+export const Button = styled.button`
+width: 96px;
+height: 24px;
+background-color: white;
+border: 1px solid gray;
+border-radius: 5px;
+cursor: pointer;
+&:hover, &:focus {
+  border-color: green;
+  color: green;
+}
 `;

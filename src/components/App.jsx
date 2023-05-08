@@ -1,9 +1,9 @@
-import React,{ Component } from "react";
+import { Component } from "react";
 import { nanoid } from 'nanoid';
 import ContactForm from "components/ContactForm";
 import ContactList from "components/ContactList";
 import Filter from 'components/Filter';
-
+import { Box } from "./Box.styled"
 
 
 
@@ -59,13 +59,17 @@ state = {
     );
 
   return (
-    <>             
+    <>
+      <Box>             
         <h1>Phonebook</h1>
         <ContactForm onSubmit = {this.addContact}/>
+      </Box>
+
+      <Box>  
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={visibleContacts} onDelete={this.deleteContact}  />        
-        
+      </Box> 
     </>
   );
 };
