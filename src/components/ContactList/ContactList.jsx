@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-// import { ContactItem, Text } from './ContactList.styled';
+import {ContactItem, Text} from './ContactList.styled';
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
@@ -7,13 +7,13 @@ const ContactList = ({ contacts, onDelete }) => {
       <ul>
         {contacts.map(({ id, name, number }) => {
           return (
-            <li key={id}>
-              <p>{name}:</p>
-              <p>{number}</p>
+            <ContactItem key={id}>
+              <Text>{name}:</Text>
+              <Text>{number}</Text>
               <button type="button" onClick={() => onDelete(id)}>
                 Delete
               </button>
-            </li>
+            </ContactItem>
           );
         })}
       </ul>
@@ -21,7 +21,6 @@ const ContactList = ({ contacts, onDelete }) => {
   );
 };
 
-export default ContactList;
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
@@ -35,3 +34,4 @@ ContactList.propTypes = {
 };
 
 
+export default ContactList;
