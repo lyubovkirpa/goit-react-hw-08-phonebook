@@ -19,9 +19,10 @@ state = {
   };
 
 
-  addContact = ({ name }) => {
+  addContact = ({ name, number }) => {
     const newContact = {
       name,
+      number,
       id: nanoid(),
     };
 
@@ -61,9 +62,10 @@ state = {
     <>             
         <h1>Phonebook</h1>
         <ContactForm onSubmit = {this.addContact}/>
+        <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={visibleContacts} onDelete={this.deleteContact}  />        
-           
+        
     </>
   );
 };
