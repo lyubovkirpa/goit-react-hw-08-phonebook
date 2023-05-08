@@ -30,7 +30,7 @@ static propTypes = {
   reset = () => {
     this.setState({
       name: '',
-     
+      
     });
   };
 
