@@ -8,13 +8,13 @@ import {
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
 
-const ContactListItem = ({ id, name, number }) => {
+const ContactListItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
   return (
     <ContactItem key={id}>
       <SearchList>
         <Text>{name}:</Text>
-        <Text>{number}</Text>
+        <Text>{phone}</Text>
       </SearchList>
       <Button type="button" onClick={() => dispatch(deleteContact(id))}>
         Delete
@@ -26,7 +26,7 @@ const ContactListItem = ({ id, name, number }) => {
 ContactListItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };
 
 export default ContactListItem;

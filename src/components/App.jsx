@@ -1,11 +1,27 @@
-// import { useState, useEffect } from 'react';
-// import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
+import { selectIsLoading, selectError } from 'redux/selectors';
+
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Filter from 'components/Filter';
 import { Box } from './Box.styled';
 
+
 export const App = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
+  useEffect(() => {
+    const promise = dispatch(fetchContacts());
+    return () => {
+      promise.abort();
+    };
+  }, [dispatch]);
+
+
   return (
     <>
       <Box>
@@ -16,6 +32,8 @@ export const App = () => {
       <Box>
         <h2>Contacts</h2>
         <Filter />
+        {isLoading && !error && <p>Request in progress...</p>}
+        {error && <p>Something goes wrong</p>}
         <ContactList />
       </Box>
     </>
