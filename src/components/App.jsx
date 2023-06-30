@@ -9,6 +9,7 @@ import Filter from 'components/Filter';
 import { Box } from './Box.styled';
 
 
+
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
