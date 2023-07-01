@@ -3,7 +3,7 @@ import { Label, Input } from './Filter.styled';
 import { changeFilter } from 'redux/contacts/filterSlice';
 import { useDispatch } from 'react-redux';
 
-const Filter = () => {
+export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleChange = event => {
@@ -19,4 +19,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+
