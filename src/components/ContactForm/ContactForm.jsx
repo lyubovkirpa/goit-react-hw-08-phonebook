@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormStyle, Label, Input, Button } from './ContactForm.styled';
+import { FormStyle, Label, Input } from './ContactForm.styled';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 import toast from 'react-hot-toast';
@@ -82,11 +82,10 @@ export const ContactForm = () => {
             />
           </Label>
 
-          <Button type="submit">Add contact</Button>
+          <button type="submit">Add contact</button>
         </FormStyle>
       </form>
     </>
   );
 };
 
-// export default ContactForm;

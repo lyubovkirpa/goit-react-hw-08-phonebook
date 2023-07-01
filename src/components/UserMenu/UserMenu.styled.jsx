@@ -8,4 +8,5 @@ export const Wrapper = styled.div`
 
 export const Username = styled.p`
   font-weight: 700;
+  font-size: 18px;
 `;

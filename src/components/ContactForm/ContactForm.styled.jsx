@@ -2,16 +2,12 @@ import styled from '@emotion/styled';
 
 
 export const FormStyle = styled.div`
-margin: 0px;
-color: gray;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 16px;
-padding: 20px;
-border: 1px solid gray;
-border-radius: 5px;
+padding: 5px;
+border: 1px solid;
+width: 300px;
+margin-bottom: 10px;
 `;
+
 
 export const Label = styled.label`
   display: flex;
@@ -24,15 +20,4 @@ export const Input = styled.input`
   width: 200px;
 `;
 
-export const Button = styled.button`
-width: 96px;
-height: 24px;
-background-color: white;
-border: 1px solid gray;
-border-radius: 5px;
-cursor: pointer;
-&:hover, &:focus {
-  border-color: green;
-  color: green;
-}
-`;
+
