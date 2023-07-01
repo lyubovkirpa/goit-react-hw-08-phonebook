@@ -1,13 +1,3 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { fetchContacts } from 'redux/contacts/operations';
-// import { selectIsLoading, selectError } from 'redux/contacts/selectors';
-
-// import ContactForm from 'components/ContactForm';
-// import ContactList from 'components/ContactList';
-// import Filter from 'components/Filter';
-// import { Box } from './Box.styled';
-
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';

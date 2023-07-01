@@ -3,7 +3,7 @@ import { ContactItem, Text } from './ContactListItem.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 
-const ContactListItem = ({ id, name, number }) => {
+export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   return (
     <ContactItem key={id}>
@@ -23,4 +23,4 @@ ContactListItem.propTypes = {
   number: PropTypes.string.isRequired,
 };
 
-export default ContactListItem;
+
